@@ -1,0 +1,44 @@
+<mat-card>
+    <div fxLayout="column">
+        <form fxLayout="column" (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+            <mat-form-field>
+                <input matInput placeholder="User Name" id="username" [(ngModel)]="user.username" name="username">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Password" id="password" [(ngModel)]="user.password" name="password">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="First Name" id="firstname" [(ngModel)]="user.firstName" name="firstname">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Last Name" id="lastname" [(ngModel)]="user.lastName" name="lastname">
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea matInput placeholder="Address" id="address" [(ngModel)]="user.address" name="address"></textarea>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="City" id="city" [(ngModel)]="user.city" name="city">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="State" id="state" [(ngModel)]="user.state" name="state">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput #postalcode maxlength="5" placeholder="Postal Code" id="postalcode" [(ngModel)]="user.postalcode" name="postalcode">
+                <mat-hint align="end">
+                    {{postalcode.value.length}} / 5
+                </mat-hint>
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</mat-card>

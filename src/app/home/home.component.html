@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="colorNested box" fxLayout="row">
+    <div fxFlex="50%" fxFlex.gt-sm="25" fxHide.md (click)="toggleLayout()">
+      <div fxFlex>Col #1: First item in row</div>
+      <div fxFlex>Col #1: Second item in row</div>
+    </div>
+    <div fxFlex (click)="toggleLayout()">
+      <div fxFlex>Col #2: First item in column</div>
+      <div fxFlex>Col #2: Second item in column</div>
+    </div>
+  </div>
+</div>

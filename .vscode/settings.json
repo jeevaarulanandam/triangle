@@ -1,0 +1,20 @@
+{
+    "files.exclude": {
+        "node_modules/": true,
+        "e2e/": true,
+        "package-lock.json/": true,
+        "protractor.conf.js": true,
+        "karma.conf.js": true,
+        ".editorconfig": true,
+        "*.md": true
+    },
+    "search.exclude": {
+        "node_modules/": true,
+        "e2e/": true,
+        "package-lock.json/": true,
+        "protractor.conf.js": true,
+        "karma.conf.js": true,
+        ".editorconfig": true,
+        "*.md": true
+    }
+}
