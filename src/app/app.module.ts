@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 
 // Material imports
 import {

@@ -13,7 +13,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/gdkn", { useMongoClient: true })
+mongoose.connect("mongodb://localhost:27017/triangle", { useMongoClient: true })
     .then(() => console.log("MongoDb connected"))
     .catch(err => console.error("MongoDb hasn't connected", err));
 

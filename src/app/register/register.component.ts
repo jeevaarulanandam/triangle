@@ -9,7 +9,8 @@ import { UserService } from '../services/user.service';
   moduleId: module.id,
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [UserService]
 })
 export class RegisterComponent implements OnInit {
   public user = new User();
