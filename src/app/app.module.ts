@@ -22,11 +22,12 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { MoviesComponent } from './movies/movies.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, routingComponents, HomeComponent, RegisterComponent, HeaderComponent, LoginComponent
+    AppComponent, routingComponents, HomeComponent, RegisterComponent, HeaderComponent, LoginComponent, MoviesComponent
   ],
   imports: [
     BrowserModule,
