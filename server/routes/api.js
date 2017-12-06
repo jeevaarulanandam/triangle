@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
     res.send('api works');
 });
 
-router.get('/users', function (req, res, next) {
+router.get('/users', ensureToken, function (req, res, next) {
     userModel.getusers(function (error, result) {
         if (!error) {
             res.send(result);

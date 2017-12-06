@@ -16,5 +16,6 @@
         "karma.conf.js": true,
         ".editorconfig": true,
         "*.md": true
-    }
+    },
+    "hg.enabled": false
 }

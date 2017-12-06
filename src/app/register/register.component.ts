@@ -45,22 +45,21 @@ export class RegisterComponent implements OnInit {
     return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
   }
 
-  editFamily(item) {
+  editUser(item) {
     console.log(item);
   }
 
 
-  viewFamily(item) {
+  viewUser(item) {
     this.router.navigate(['/user', item._id]);
   }
 
 
-  deleteFamily(item) {
+  deleteUser(item) {
     this.userService.deleteUser(item._id).subscribe(user => {
       console.log('Successfully deleted');
       this.result = user;
       this.ngOnInit();
     });
   }
-
 }

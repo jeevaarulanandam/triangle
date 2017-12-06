@@ -1,13 +1,15 @@
 <mat-card>
     <h2>Login</h2>
 
-    <form class="login-form" fxLayout="column">
-        <mat-form-field>
-            <input type="text" matInput placeholder="username">
+    <form class="login-form" name="form" (ngSubmit)="f.form.valid && userLogin()" #f="ngForm" fxLayout="column" novalidate>
+        <mat-form-field [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input type="text" matInput placeholder="username" [(ngModel)]="model.username" #username="ngModel" name="username" required>
+            <mat-error *ngIf="f.submitted && !username.valid">Username is required</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input type="password" matInput placeholder="passcode">
+        <mat-form-field [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <input type="password" matInput placeholder="passcode" [(ngModel)]="model.password" #password="ngModel" name="password" required>
+            <mat-error *ngIf="f.submitted && !password.valid">Password is required</mat-error>
         </mat-form-field>
-        <button mat-button mat-raised-button color="primary" (click)="userLogin()">Login</button>
+        <button mat-button mat-raised-button color="primary" (click)="userLogin()" type="submit">Login</button>
     </form>
 </mat-card>

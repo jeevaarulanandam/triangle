@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, enableProdMode } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 
@@ -16,6 +16,15 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
 
+// Auth Services
+import { AuthGuard } from './services/auth.guard';
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
+
+
+import 'hammerjs';
+
+enableProdMode();
 
 @NgModule({
   declarations: [
@@ -31,7 +40,7 @@ import { MoviesComponent } from './movies/movies.component';
     AppRoutingModule,
     AppMaterialModule
   ],
-  providers: [],
+  providers: [UserService, AuthGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
