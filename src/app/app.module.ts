@@ -1,22 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule, Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 
-// Material imports
-import {
-  MatCheckboxModule,
-  MatCardModule,
-  MatToolbarModule,
-  MatMenuModule,
-  MatButtonModule,
-  MatIconModule,
-  MatInputModule
-} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Project Components
+import { AppMaterialModule } from './app.material.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app.routing';
 import { HomeComponent } from './home/home.component';
@@ -34,17 +25,11 @@ import { MoviesComponent } from './movies/movies.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
     FlexLayoutModule,
     AppRoutingModule,
-
-    MatCheckboxModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatInputModule,
-
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
