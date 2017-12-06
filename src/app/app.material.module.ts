@@ -9,7 +9,9 @@ import {
   MatMenuModule,
   MatButtonModule,
   MatIconModule,
-  MatInputModule
+  MatInputModule,
+  MatAutocompleteModule,
+  MatTabsModule
 
 } from '@angular/material';
 
@@ -22,9 +24,11 @@ import {
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
-
+    MatInputModule,
+    MatAutocompleteModule,
+    MatTabsModule
   ],
+  
   exports: [
     MatCheckboxModule,
     MatCardModule,
@@ -32,7 +36,9 @@ import {
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule,
+    MatTabsModule
 
   ],
   declarations: []

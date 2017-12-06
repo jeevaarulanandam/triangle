@@ -1,0 +1,40 @@
+<mat-card>
+    <h2>Dashboard</h2>
+    <mat-tab-group>
+        <mat-tab label="Movies">
+
+            <form class="movie-form">
+                <div fxLayout="column">
+                    <mat-form-field>
+                        <input #movie matInput placeholder="Movie Name">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <textarea matInput placeholder="Movie Description"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Movie Language" aria-label="Number" matInput [formControl]="movieLanguage" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let language of languageList" [value]="language">
+                                {{ language }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+
+                    <div>
+                        <button mat-raised-button color="primary" (click)="updateMovie()">Update Movie</button>
+                    </div>
+
+
+
+                </div>
+            </form>
+
+
+
+        </mat-tab>
+        <mat-tab label="Bus Ticktes">Comming Soon</mat-tab>
+    </mat-tab-group>
+</mat-card>
