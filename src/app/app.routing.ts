@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MoviesComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -27,5 +29,6 @@ export const routingComponents = [
   HomeComponent,
   RegisterComponent,
   LoginComponent,
-  MoviesComponent
+  MoviesComponent,
+  DashboardComponent
 ];

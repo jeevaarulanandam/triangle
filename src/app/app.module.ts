@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { MoviesComponent } from './movies/movies.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 // Auth Services
 import { AuthGuard } from './services/auth.guard';
@@ -28,7 +29,14 @@ enableProdMode();
 
 @NgModule({
   declarations: [
-    AppComponent, routingComponents, HomeComponent, RegisterComponent, HeaderComponent, LoginComponent, MoviesComponent
+    AppComponent,
+    routingComponents,
+    HomeComponent,
+    RegisterComponent,
+    HeaderComponent,
+    LoginComponent,
+    MoviesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
