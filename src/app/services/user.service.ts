@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
+import { Http, Headers, URLSearchParams, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+
+import { AuthenticationService } from './authentication.service';
 
 
 @Injectable()
 export class UserService {
 
-  constructor(private _http: Http) { }
+  constructor(
+    private _http: Http,
+    private authenticationService: AuthenticationService
+  ) { }
 
   getUsers() {
-    return this._http.get('/api/users/')
+    const headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.get('/api/users/', options)
       .map(res => res.json());
   }
 
