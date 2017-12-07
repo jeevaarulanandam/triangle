@@ -3,10 +3,18 @@
         <span>{{title}}</span>
         <span>
             <button routerLink="/home" routerLinkActive="active" mat-button>Home</button>
-            <button routerLink="/register" mat-button>Register</button>
-            <!-- <button routerLink="/login" mat-button>Login</button> -->
-            <button routerLink="/movies" mat-button>Movies</button>
+            <button routerLink="/register" mat-button  >Register</button>
+            <button routerLink="/login" mat-button>Login</button>
+            <button routerLink="/movies" mat-button >Movies</button>
             <button routerLink="/dashboard" mat-button>Dashboard</button>
+            <button mat-button [matMenuTriggerFor]="menu" ><i class="material-icons">account_circle</i>&nbsp;Blacky Geeky</button>
+             <mat-menu #menu="matMenu">
+             <button mat-menu-item>My bookings</button>
+             <button mat-menu-item (click)="userLogout()">Logout</button>
+
+            {{isAuthenticatedStatus()}}
+
+           </mat-menu>
         </span>
 
     </mat-toolbar-row>

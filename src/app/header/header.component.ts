@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuard } from '../services/auth.guard';
+import { AuthenticationService } from '../services/authentication.service';
+import { NgIf } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'app-header',
@@ -7,7 +13,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title = 'Triangle';
-  constructor() { }
+  constructor(
+    private authGaurd: AuthGuard,
+    private authentication: AuthenticationService
+  ) { }
+
+
+  isAuthenticatedStatus(){
+    console.log("authStatus");
+    return this.authGaurd.canActivate();
+  }
+
+  userLogout(){
+    return this.authentication.logout();
+  }
 
   ngOnInit() {
   }
