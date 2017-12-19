@@ -3,17 +3,16 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const config = require('./config');
 
 // Get our API routes
 const api = require('./server/routes/api');
-
 const app = express();
 
-
-
+// Mongo Connect
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/triangle", { useMongoClient: true })
+mongoose.connect("mongodb://" + config.db.host + "/" + config.db.port, { useMongoClient: true })
     .then(() => console.log("MongoDb connected"))
     .catch(err => console.error("MongoDb hasn't connected", err));
 
