@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { MoviesComponent } from './movies/movies.component';
+import { BusComponent } from './bus/bus.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home', canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'movies', component: MoviesComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'bus', component: BusComponent },
+ { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
@@ -29,6 +27,6 @@ export const routingComponents = [
   HomeComponent,
   RegisterComponent,
   LoginComponent,
-  MoviesComponent,
-  DashboardComponent
+  DashboardComponent,
+  BusComponent
 ];
