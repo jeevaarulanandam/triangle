@@ -3,7 +3,8 @@ To Run the application
 
 ng build
 
-node server.js
+node server.js 
+
 
 
 To create new Component
