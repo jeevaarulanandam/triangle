@@ -14,8 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { MoviesComponent } from './movies/movies.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BusComponent } from './bus/bus.component';
 
 // Auth Services
 import { AuthGuard } from './services/auth.guard';
@@ -24,7 +24,6 @@ import { UserService } from './services/user.service';
 
 
 import 'hammerjs';
-
 
 enableProdMode();
 
@@ -36,8 +35,8 @@ enableProdMode();
     RegisterComponent,
     HeaderComponent,
     LoginComponent,
-    DashboardComponent,
-    BusComponent
+    MoviesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
