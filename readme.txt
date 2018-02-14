@@ -6,7 +6,6 @@ ng build
 node server.js 
 
 
-
 To create new Component
 -----------------------
 

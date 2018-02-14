@@ -20,7 +20,7 @@ import { BusComponent } from './bus/bus.component';
 // Auth Services
 import { AuthGuard } from './services/auth.guard';
 import { AuthenticationService } from './services/authentication.service';
-import { UserService } from './services/user.service'; 
+import { UserService } from './services/user.service';  
 
 
 import 'hammerjs';
