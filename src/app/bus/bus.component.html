@@ -1,3 +1,24 @@
-<p>
-  bus works!
-</p>
+<mat-card fxLayout="column" fxLayoutAlign="center start">
+
+
+    <mat-card-title>Book your bus tickets</mat-card-title>
+
+    <div fxLayout="row" fxLayoutGap="15px">
+        <mat-form-field fxLayoutMargin>
+            <input matInput placeholder="From">
+        </mat-form-field>
+        <mat-form-field fxLayoutMargin>
+            <input matInput placeholder="To">
+        </mat-form-field>
+
+        <mat-form-field fxLayoutMargin>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-button mat-raised-button color="primary">Search Bus</button>
+
+    </div>
+
+</mat-card>
