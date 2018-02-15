@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 var userModel = require('../models/user');
+
+var goibibo = require('../externalApis/goibibo');
 var jwt = require('jsonwebtoken');
 var secret = 'gdkn!GuLp1';
 
@@ -11,7 +13,7 @@ function ensureToken(req, res, next) {
         const bearer = bearerHeader.split(" ");
         const bearerToken = bearer[1];
         req.token = bearerToken;
-        jwt.verify(req.token, secret, function (err, data) {
+        jwt.verify(req.token, secret, function(err, data) {
             if (err) {
                 res.sendStatus(403);
             } else {
@@ -29,8 +31,8 @@ router.get('/', (req, res) => {
     res.send('api works');
 });
 
-router.get('/users', ensureToken, function (req, res, next) {
-    userModel.getusers(function (error, result) {
+router.get('/users', ensureToken, function(req, res, next) {
+    userModel.getusers(function(error, result) {
         if (!error) {
             res.send(result);
         } else {
@@ -39,9 +41,9 @@ router.get('/users', ensureToken, function (req, res, next) {
     });
 });
 
-router.post('/user', function (req, res, next) {
+router.post('/user', function(req, res, next) {
     var jsondata = req.body;
-    userModel.postUser(jsondata, function (error, result) {
+    userModel.postUser(jsondata, function(error, result) {
         if (error) {
             res.status(500).send(error);
         } else {
@@ -50,21 +52,9 @@ router.post('/user', function (req, res, next) {
     });
 });
 
-router.put('/user', ensureToken, function (req, res, next) {
+router.put('/user', ensureToken, function(req, res, next) {
     var jsondata = req.body;
-    userModel.updateUser(jsondata, function (error, result) {
-        if (error) {
-            res.status(500).send(error);
-        } else {
-            res.status(200).send(result);
-        }
-    });
-});
-
-
-router.delete('/user', ensureToken, function (req, res, next) {
-    var jsondata = req.body;
-    userModel.deleteUser(jsondata, function (error, result) {
+    userModel.updateUser(jsondata, function(error, result) {
         if (error) {
             res.status(500).send(error);
         } else {
@@ -74,10 +64,22 @@ router.delete('/user', ensureToken, function (req, res, next) {
 });
 
 
+router.delete('/user', ensureToken, function(req, res, next) {
+    var jsondata = req.body;
+    userModel.deleteUser(jsondata, function(error, result) {
+        if (error) {
+            res.status(500).send(error);
+        } else {
+            res.status(200).send(result);
+        }
+    });
+});
 
-router.get('/user/:id', ensureToken, function (req, res, next) {
+
+
+router.get('/user/:id', ensureToken, function(req, res, next) {
     var jsondata = req.params.id;
-    userModel.getauser(jsondata, function (error, result) {
+    userModel.getauser(jsondata, function(error, result) {
         if (error) {
             res.status(500).send(error);
         } else {
@@ -87,9 +89,9 @@ router.get('/user/:id', ensureToken, function (req, res, next) {
 });
 
 
-router.post('/authenticate', function (req, res, next) {
+router.post('/authenticate', function(req, res, next) {
     var jsondata = req.body;
-    userModel.verifyUser(jsondata, function (error, result) {
+    userModel.verifyUser(jsondata, function(error, result) {
         if (error) {
             res.status(500).send(error);
         } else if (result) {
@@ -105,6 +107,19 @@ router.post('/authenticate', function (req, res, next) {
         }
     });
 
+});
+
+
+
+router.get('/searchBus', function(req, res, next) {
+    var searchBusQuery = req.body;
+    goibibo.searchBus(searchBusQuery, function(error, result) {
+        if (error) {
+            res.status(500).send(error);
+        } else {
+            res.status(200).json(result);
+        }
+    });
 });
 
 module.exports = router;

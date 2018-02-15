@@ -14,7 +14,11 @@ import {
   MatTabsModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatRadioModule
+  MatRadioModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatSortModule
+  
 
 } from '@angular/material';
 
@@ -33,9 +37,12 @@ import {
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
-
-  ],
+    MatRadioModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSortModule
+   
+],
   exports: [
     MatCheckboxModule,
     MatCardModule,
@@ -48,11 +55,11 @@ import {
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
-    
-
-
-  ],
+    MatRadioModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSortModule
+    ],
   declarations: []
 })
 export class AppMaterialModule { }

@@ -7,7 +7,6 @@ const config = require('./config');
 
 // Get our API routes
 const api = require('./server/routes/api');
-const goibibo = require('./server/externalApis/goibibo');
 const app = express();
 const request = require("request")
 
