@@ -13,7 +13,8 @@ import {
   MatAutocompleteModule,
   MatTabsModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatRadioModule
 
 } from '@angular/material';
 
@@ -31,7 +32,8 @@ import {
     MatAutocompleteModule,
     MatTabsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
 
   ],
   exports: [
@@ -45,7 +47,8 @@ import {
     MatAutocompleteModule,
     MatTabsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
     
 
 

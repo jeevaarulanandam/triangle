@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bus.component.css']
 })
 export class BusComponent implements OnInit {
-
-  constructor() { }
+trip;
+constructor() {
+    this.trip ={
+      type:'oneWayTrip'
+    }
+   }
 
   ngOnInit() {
+  }
+
+  searchBus() {
+   
   }
 
 }
