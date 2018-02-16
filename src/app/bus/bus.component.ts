@@ -22,12 +22,13 @@ export class BusComponent implements OnInit {
   
   //Search Bus Query
   searchBus() {
-    console.log(this.trip);
-    this.trip.departDate = moment(this.trip.departDate).format('D-M-YYYY');
-    this.trip.returnDate = moment(this.trip.returnDate).format('D-M-YYYY');
+    
+    this.trip.departDate = moment(this.trip.departDate).format('YYYYMMDD');
+    this.trip.returnDate = moment(this.trip.returnDate).format('YYYYMMDD');
 
     this.goibiboApiService.searchBus(this.trip).subscribe(data => {
       this.oneWaysBusList = data.onwardflights;
+      
     }, error => {
       console.log(error);
     }, () => {

@@ -112,7 +112,7 @@ router.post('/authenticate', function(req, res, next) {
 
 
 router.get('/searchBus', function(req, res, next) {
-    var searchBusQuery = req.body;
+    var searchBusQuery = req.query;
     goibibo.searchBus(searchBusQuery, function(error, result) {
         if (error) {
             res.status(500).send(error);

@@ -15,7 +15,14 @@ export class GoibiboApiService {
 
   searchBus(searchBusQuery) {
     const headers = new Headers();
-    const options = new RequestOptions({ headers: headers });
+    let search: URLSearchParams = new URLSearchParams();
+    for (var key in searchBusQuery) {
+      if (searchBusQuery.hasOwnProperty(key)) {
+        let val = searchBusQuery[key];
+        search.set(key, val);
+      }
+    }
+    const options = new RequestOptions({ headers: headers, search: search });
     return this._http.get('/api/searchBus/', options)
       .map(res => res.json());
   }
