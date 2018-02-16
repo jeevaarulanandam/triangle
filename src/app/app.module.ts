@@ -25,6 +25,8 @@ import { UserService } from './services/user.service';
 
 import 'hammerjs';
 
+import * as moment from 'moment';
+
 
 enableProdMode();
 
