@@ -6,13 +6,12 @@ var seatMap = "http://developer.goibibo.com/api/bus/seatmap/?app_id=890d252b&app
 
 var goibibo = function() {
     var _searchBus = function(searchBusQuery, cb) {
-        console.log(searchBusQuery);
         var from = searchBusQuery.from;
         var to = searchBusQuery.to;
-        var departDate = searchBusQuery.departDate;
-        var url = 'http://developer.goibibo.com/api/bus/search/?app_id=890d252b&app_key=b9a41baeb1ebeaad95945de38854c32f&format=json&source=' + from + '&destination=' + to + '&dateofdeparture=20180215' + departDate;
+        var departDate = searchBusQuery.formatDepartDate;
+        var searchBusApiUrl = config.goibibo.url + "bus/search/?app_id=" + config.goibibo.app_id + "&app_key=" + config.goibibo.app_key + "&format=json&source=" + from + "&destination=" + to + "&dateofdeparture=" + departDate;
         request({
-            url: url,
+            url: searchBusApiUrl,
             json: true
         }, function(error, response, body) {
             if (!error && response.statusCode === 200) {
