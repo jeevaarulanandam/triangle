@@ -15,20 +15,13 @@ import * as moment from 'moment';
 export class BusComponent implements OnInit {
   oneWaysBusList: any;
   trip: any;
-  myControl: FormControl = new FormControl();
+  fromCityControl: FormControl = new FormControl();
+  toCityControl: FormControl = new FormControl();
 
-  filteredOptions: Observable<string[]>;
-  options = [
-    'One',
-    'Two',
-    'Three',
-    'One1',
-    'Two1',
-    'Three1',
-    'One2',
-    'Two2',
-    'Thre2e'
-  ];
+  fromFilteredOptions: Observable<string[]>;
+  toFilteredOptions: Observable<string[]>;
+ 
+  options = ['sivagangai','coimbatore','madurai'];
 
   constructor(private goibiboApiService: GoibiboApiService) {
     this.trip = {
@@ -54,7 +47,13 @@ export class BusComponent implements OnInit {
 
   ngOnInit() {
 
-    this.filteredOptions = this.myControl.valueChanges
+    this.fromFilteredOptions = this.fromCityControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(val => this.filter(val))
+      );
+
+      this.toFilteredOptions = this.toCityControl.valueChanges
       .pipe(
         startWith(''),
         map(val => this.filter(val))
