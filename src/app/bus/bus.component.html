@@ -10,21 +10,21 @@
         </mat-radio-group>
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px" fxLayoutMargin>
         <mat-form-field fxLayoutMargin>
-            <input type="text" placeholder="From" aria-label="Number" matInput [formControl]="fromCityControl" [matAutocomplete]="auto" [(ngModel)]="trip.from">
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of fromFilteredOptions | async" [value]="option">
-                    {{ option }}
+            <input type="text" placeholder="From" aria-label="from" matInput [formControl]="fromCityControl" [matAutocomplete]="autofrom" [(ngModel)]="trip.from">
+            <mat-autocomplete #autofrom="matAutocomplete">
+                <mat-option *ngFor="let fromCity of fromFilteredOptions | async" [value]="fromCity">
+                    {{ fromCity }}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
 
         <mat-form-field fxLayoutMargin>
-            <input type="text" placeholder="To" aria-label="Number" matInput [formControl]="toCityControl" [matAutocomplete]="auto" [(ngModel)]="trip.to">
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of toFilteredOptions | async" [value]="option">
-                    {{ option }}
+            <input type="text" placeholder="To" aria-label="to" matInput [formControl]="toCityControl" [matAutocomplete]="autoto" [(ngModel)]="trip.to">
+            <mat-autocomplete #autoto="matAutocomplete">
+                <mat-option *ngFor="let toCity of toFilteredOptions | async" [value]="toCity">
+                    {{ toCity }}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>

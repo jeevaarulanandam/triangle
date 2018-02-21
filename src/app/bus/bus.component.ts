@@ -3,6 +3,7 @@ import { GoibiboApiService } from '../services/goibiboApi.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators/startWith';
+import { CitiesService } from '../services/cities.service';
 import { map } from 'rxjs/operators/map';
 import * as moment from 'moment';
 
@@ -10,7 +11,7 @@ import * as moment from 'moment';
   selector: 'app-bus',
   templateUrl: './bus.component.html',
   styleUrls: ['./bus.component.css'],
-  providers: [GoibiboApiService]
+  providers: [GoibiboApiService,CitiesService]
 })
 export class BusComponent implements OnInit {
   oneWaysBusList: any;
@@ -21,9 +22,11 @@ export class BusComponent implements OnInit {
   fromFilteredOptions: Observable<string[]>;
   toFilteredOptions: Observable<string[]>;
  
-  options = ['sivagangai','coimbatore','madurai'];
+  options = this.cities.getBus();
+  options1 = this.cities.getBus();
 
-  constructor(private goibiboApiService: GoibiboApiService) {
+  constructor(private goibiboApiService: GoibiboApiService,
+              private cities:CitiesService) {
     this.trip = {
       type: 'oneWayTrip'
     }
@@ -36,6 +39,7 @@ export class BusComponent implements OnInit {
 
     this.goibiboApiService.searchBus(this.trip).subscribe(data => {
       this.oneWaysBusList = data.onwardflights;
+      console.log(data.onwardflights);
 
     }, error => {
       console.log(error);
@@ -46,18 +50,13 @@ export class BusComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.fromFilteredOptions = this.fromCityControl.valueChanges
-      .pipe(
-        startWith(''),
+      this.toFilteredOptions = this.toCityControl.valueChanges.pipe(startWith(''),
         map(val => this.filter(val))
       );
 
-      this.toFilteredOptions = this.toCityControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(val => this.filter(val))
-      );
+      this.fromFilteredOptions = this.fromCityControl.valueChanges.pipe(startWith(''),
+      map(val => this.filter(val))
+    );
   }
 
   filter(val: string): string[] {
