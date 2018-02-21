@@ -18,8 +18,6 @@ import {
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSortModule
-  
-
 } from '@angular/material';
 
 @NgModule({
@@ -41,8 +39,8 @@ import {
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatSortModule
-   
-],
+
+  ],
   exports: [
     MatCheckboxModule,
     MatCardModule,
@@ -59,7 +57,7 @@ import {
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatSortModule
-    ],
+  ],
   declarations: []
 })
 export class AppMaterialModule { }

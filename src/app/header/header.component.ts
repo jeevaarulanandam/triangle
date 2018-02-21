@@ -15,18 +15,18 @@ export class HeaderComponent implements OnInit {
     private authentication: AuthenticationService
   ) { }
 
-   isAuth = false;
+  isAuth = false;
 
-  isAuthenticatedStatus():boolean{
+  isAuthenticatedStatus(): boolean {
     return this.authGaurd.canActivate();
- }
+  }
 
-  userLogout(){
+  userLogout() {
     return this.authentication.logout();
   }
 
   ngOnInit() {
-    
+
   }
 
 }

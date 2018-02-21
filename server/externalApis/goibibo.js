@@ -1,11 +1,9 @@
 const config = require('../../config');
 var request = require('request');
-//---GOIBIBO REST API---
-var seatMap = "http://developer.goibibo.com/api/bus/seatmap/?app_id=890d252b&app_key=b9a41baeb1ebeaad95945de38854c32f&format=json&skey=zaZ-IjMnmNI2zK59Gtq-EC5ZJw8645JJMJnl16JX-GoTy-wA3tkQsTPrjqmD7SezZlQsHuMwL7T4aIUuJ3c%3D";
-// var url = "http://developer.goibibo.com/api/bus/search/?app_id=890d252b&app_key=b9a41baeb1ebeaad95945de38854c32f&format=json&source=sivagangai&destination=coimbatore&dateofdeparture=20180215"
+var seatMap = config.goibibo.url + "bus/seatmap/?app_id=" + config.goibibo.app_id + "&app_key=" + config.goibibo.app_key + "&format=json&skey=" + config.goibibo.skey;
 
-var goibibo = function() {
-    var _searchBus = function(searchBusQuery, cb) {
+var goibibo = function () {
+    var _searchBus = function (searchBusQuery, cb) {
         var from = searchBusQuery.from;
         var to = searchBusQuery.to;
         var departDate = searchBusQuery.formatDepartDate;
@@ -13,7 +11,7 @@ var goibibo = function() {
         request({
             url: searchBusApiUrl,
             json: true
-        }, function(error, response, body) {
+        }, function (error, response, body) {
             if (!error && response.statusCode === 200) {
                 var responseData = {};
                 if (body.data) {
@@ -23,7 +21,7 @@ var goibibo = function() {
             } else {
                 cb(error);
             }
-        })
+        });
     };
 
     return {

@@ -1,4 +1,4 @@
-# Triangle
+# MEAN Stack
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Go Ibibo Api reference
+
+- Search Api : 
+http://developer.goibibo.com/api/bus/search/?app_id=890d252b&app_key=b9a41baeb1ebeaad95945de38854c32f&format=json&source=sivagangai&destination=coimbatore&dateofdeparture=20180215
+
+- Seatmap Api:
+http://developer.goibibo.com/api/bus/seatmap/?app_id=890d252b&app_key=b9a41baeb1ebeaad95945de38854c32f&format=json&skey=zaZ-IjMnmNI2zK59Gtq-EC5ZJw8645JJMJnl16JX-GoTy-wA3tkQsTPrjqmD7SezZlQsHuMwL7T4aIUuJ3c%3D
